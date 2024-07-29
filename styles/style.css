@@ -1,0 +1,12 @@
+.button-calc {
+  border: none;
+  cursor: pointer;
+  padding: 15px;
+  background-color: rgb(147, 230, 226);
+  font-size: 24px;
+  color: rgb(16, 12, 18);
+  font-weight: 700;
+  text-decoration: underline;
+  border-radius: 15px;
+  border: 5px solid #132e9a;
+}
