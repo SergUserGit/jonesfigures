@@ -1,27 +1,61 @@
+const planetSunInput = document.querySelector("#aspect-sun");
+const planetSunDegrInput = document.querySelector("#aspect-degr-sun");
+const planetSunHoursInput = document.querySelector("#aspect-hours-sun");
+const planetSunHouseInput = document.querySelector("#aspect-house-sun");
+
+const planetMonInput = document.querySelector("#aspect-moon");
+const planetMonDegrInput = document.querySelector("#aspect-degr-moon");
+const planetMonHoursInput = document.querySelector("#aspect-hours-moon");
+const planetMonHouseInput = document.querySelector("#aspect-house-moon");
+
 const buttonCalc = document.querySelector(".button-calc");
 
 buttonCalc.addEventListener("click", onClickButtonCalc);
 
+function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
+  const newObj = {
+    znValue: znZodInput.options[znZodInput.value - 1].textContent,
+    degrValue: parseInt(degrInput.value),
+    hoursValue: parseInt(hoursInput.value),
+    houseValue: parseInt(houseInput.value),
+  };
+  return newObj;
+}
+
 function onClickButtonCalc() {
+  const objSun = getDatePlanet(
+    planetSunInput,
+    planetSunDegrInput,
+    planetSunHoursInput,
+    planetSunHouseInput
+  );
+
+  const objMon = getDatePlanet(
+    planetMonInput,
+    planetMonDegrInput,
+    planetMonHoursInput,
+    planetMonHouseInput
+  );
+
   let arrayDate = [];
 
   const dateOne = {
     planet: "Сонце",
-    znZod: "Рак",
-    degr: 13,
-    hours: 57,
-    house: 10,
-    fulDegr: getDegrZnZodiak("Рак") + 13,
+    znZod: objSun.znValue,
+    degr: objSun.degrValue,
+    hours: objSun.hoursValue,
+    house: objSun.houseValue,
+    fulDegr: getDegrZnZodiak(objSun.znValue) + objSun.degrValue,
   };
   arrayDate.push(dateOne);
 
   const dateTwo = {
     planet: "Місяць",
-    znZod: "Рак",
-    degr: 4,
-    hours: 9,
-    house: 10,
-    fulDegr: getDegrZnZodiak("Рак") + 4,
+    znZod: objMon.znValue,
+    degr: objMon.degrValue,
+    hours: objMon.hoursValue,
+    house: objMon.houseValue,
+    fulDegr: getDegrZnZodiak(objMon.znValue) + objMon.degrValue,
   };
   arrayDate.push(dateTwo);
 
