@@ -28,6 +28,26 @@ const planetUpiterDegrInput = document.querySelector("#aspect-degr-yupiter");
 const planetUpiterHoursInput = document.querySelector("#aspect-hours-yupiter");
 const planetUpiterHouseInput = document.querySelector("#aspect-house-yupiter");
 
+const planetSaturnInput = document.querySelector("#aspect-saturn");
+const planetSaturnDegrInput = document.querySelector("#aspect-degr-saturn");
+const planetSaturnHoursInput = document.querySelector("#aspect-hours-saturn");
+const planetSaturnHouseInput = document.querySelector("#aspect-house-saturn");
+
+const planetUranInput = document.querySelector("#aspect-uran");
+const planetUranDegrInput = document.querySelector("#aspect-degr-uran");
+const planetUranHoursInput = document.querySelector("#aspect-hours-uran");
+const planetUranHouseInput = document.querySelector("#aspect-house-uran");
+
+const planetNeptunInput = document.querySelector("#aspect-neptun");
+const planetNeptunDegrInput = document.querySelector("#aspect-degr-neptun");
+const planetNeptunHoursInput = document.querySelector("#aspect-hours-neptun");
+const planetNeptunHouseInput = document.querySelector("#aspect-house-neptun");
+
+const planetPlutonInput = document.querySelector("#aspect-pluton");
+const planetPlutonDegrInput = document.querySelector("#aspect-degr-pluton");
+const planetPlutonHoursInput = document.querySelector("#aspect-hours-pluton");
+const planetPlutonHouseInput = document.querySelector("#aspect-house-pluton");
+
 const buttonCalc = document.querySelector(".button-calc");
 
 buttonCalc.addEventListener("click", onClickButtonCalc);
@@ -83,6 +103,34 @@ function onClickButtonCalc() {
     planetUpiterDegrInput,
     planetUpiterHoursInput,
     planetUpiterHouseInput
+  );
+
+  const objSaturn = getDatePlanet(
+    planetSaturnInput,
+    planetSaturnDegrInput,
+    planetSaturnHoursInput,
+    planetSaturnHouseInput
+  );
+
+  const objUran = getDatePlanet(
+    planetUranInput,
+    planetUranDegrInput,
+    planetUranHoursInput,
+    planetUranHouseInput
+  );
+
+  const objNeptun = getDatePlanet(
+    planetNeptunInput,
+    planetNeptunDegrInput,
+    planetNeptunHoursInput,
+    planetNeptunHouseInput
+  );
+
+  const opjPluton = getDatePlanet(
+    planetPlutonInput,
+    planetPlutonDegrInput,
+    planetPlutonHoursInput,
+    planetPlutonHouseInput
   );
 
   let arrayDate = [];
@@ -149,41 +197,41 @@ function onClickButtonCalc() {
 
   const dateSeven = {
     planet: "Сатурн",
-    znZod: "Стрілець",
-    degr: 3,
-    hours: 51,
-    house: 3,
-    fulDegr: getDegrZnZodiak("Стрілець") + 3,
+    znZod: objSaturn.znValue,
+    degr: objSaturn.degrValue,
+    hours: objSaturn.hoursValue,
+    house: objSaturn.houseValue,
+    fulDegr: getDegrZnZodiak(objSaturn.znValue) + objSaturn.degrValue,
   };
   arrayDate.push(dateSeven);
 
   const dateEight = {
     planet: "Уран",
-    znZod: "Стрілець",
-    degr: 19,
-    hours: 24,
-    house: 4,
-    fulDegr: getDegrZnZodiak("Стрілець") + 19,
+    znZod: objUran.znValue,
+    degr: objUran.degrValue,
+    hours: objUran.hoursValue,
+    house: objUran.houseValue,
+    fulDegr: getDegrZnZodiak(objUran.znValue) + objUran.degrValue,
   };
   arrayDate.push(dateEight);
 
   const dateNine = {
     planet: "Нептун",
-    znZod: "Козеріг",
-    degr: 4,
-    hours: 9,
-    house: 4,
-    fulDegr: getDegrZnZodiak("Козеріг") + 4,
+    znZod: objNeptun.znValue,
+    degr: objNeptun.degrValue,
+    hours: objNeptun.hoursValue,
+    house: objNeptun.houseValue,
+    fulDegr: getDegrZnZodiak(objNeptun.znValue) + objNeptun.degrValue,
   };
   arrayDate.push(dateNine);
 
   const dateTen = {
     planet: "Плутон",
-    znZod: "Скорпіон",
-    degr: 4,
-    hours: 33,
-    house: 2,
-    fulDegr: getDegrZnZodiak("Скорпіон") + 4,
+    znZod: opjPluton.znValue,
+    degr: opjPluton.degrValue,
+    hours: opjPluton.hoursValue,
+    house: opjPluton.houseValue,
+    fulDegr: getDegrZnZodiak(opjPluton.znValue) + opjPluton.degrValue,
   };
   arrayDate.push(dateTen);
 
