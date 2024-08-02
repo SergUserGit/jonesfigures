@@ -52,6 +52,10 @@ const buttonCalc = document.querySelector(".button-calc");
 
 buttonCalc.addEventListener("click", onClickButtonCalc);
 
+const degrValue = document.querySelector(".degr-value");
+
+//
+
 function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
   const newObj = {
     znValue: znZodInput.options[znZodInput.value - 1].textContent,
@@ -248,17 +252,32 @@ function onClickButtonCalc() {
       arrayHouse.push(newObj);
     }
   }
-  let counter = 1;
+
+  /* const firstElem = arrayHouse[0];
+  const lastElem = arrayHouse[arrayHouse.length - 1];
+
+  const firstDegr = firstElem.arrayDetail[0].fulDegr;
+  const lastDegr =
+    lastElem.arrayDetail[lastElem.arrayDetail.length - 1].fulDegr;
+  const difDegr = lastDegr - firstDegr;
+  console.log(difDegr);*/
+
+  let arrayDegr = [];
+
   for (let n = 0; n < arrayHouse.length; n += 1) {
     const curElem = arrayHouse[n];
     const curArray = curElem.arrayDetail;
 
     for (let b = 0; b < curArray.length; b += 1) {
       curElemPlanet = curArray[b];
-      console.log(String(counter) + ". " + curElemPlanet.planet);
-      counter += 1;
+      arrayDegr.push(curElemPlanet.fulDegr);
     }
   }
+
+  arrayDegr.sort((a, b) => a - b);
+  const difDegr = arrayDegr[arrayDegr.length - 1] - arrayDegr[0];
+
+  degrValue.textContent = String(difDegr);
 }
 
 function getDegrZnZodiak(znZod) {
