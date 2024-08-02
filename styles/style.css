@@ -155,3 +155,13 @@
   background-color: #f0f6d8;
   border: 5px solid #1c0f2a;
 }
+
+.degr-value {
+  text-align: center;
+  color: #8d1368;
+  font-size: 60px;
+  border: 5px solid #9a1349;
+  border-radius: 25px;
+  background-color: #79b3c0;
+  cursor: pointer;
+}
