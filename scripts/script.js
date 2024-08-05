@@ -295,6 +295,7 @@ function onClickButtonCalc() {
     );
   }
 
+  arrayDiferent.sort((a, b) => a - b);
   degrValue.textContent = arrayDiferent.join("-");
 }
 
