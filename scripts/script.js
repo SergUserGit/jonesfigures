@@ -271,8 +271,6 @@ function onClickButtonCalc() {
     }
   }
 
-  console.log(totalArray);
-
   let arrayDiferent = [];
 
   for (let i = 1; i < totalArray.length; i += 1) {
@@ -298,38 +296,6 @@ function onClickButtonCalc() {
   }
 
   degrValue.textContent = arrayDiferent.join("-");
-
-  /* const firstElem = arrayHouse[0];
-  const lastElem = arrayHouse[arrayHouse.length - 1];
-
-  const firstDegr = firstElem.arrayDetail[0].fulDegr;
-  const lastDegr =
-    lastElem.arrayDetail[lastElem.arrayDetail.length - 1].fulDegr;
-  const difDegr = lastDegr - firstDegr;
-  console.log(difDegr);
-
-  let arrayDegr = [];
-
-  for (let n = 0; n < arrayHouse.length; n += 1) {
-    const curElem = arrayHouse[n];
-    const curArray = curElem.arrayDetail;
-
-    for (let b = 0; b < curArray.length; b += 1) {
-      curElemPlanet = curArray[b];
-      arrayDegr.push(curElemPlanet.fulDegr);
-    }
-  }
-
-  arrayDegr.sort((a, b) => a - b);
-  const difDegr = arrayDegr[arrayDegr.length - 1] - arrayDegr[0];
-
-  degrValue.textContent = String(difDegr);
-
-  for (let n = 1; n < arrayDegr.length; n += 1) {
-    const firstElem = arrayDegr[n];
-    const lastElem = arrayDegr[n - 1];
-    console.log(firstElem - lastElem);
-  }*/
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
