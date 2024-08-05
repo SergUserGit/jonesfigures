@@ -253,6 +253,52 @@ function onClickButtonCalc() {
     }
   }
 
+  let totalArray = [];
+
+  for (let n = 0; n < arrayHouse.length; n += 1) {
+    const curElem = arrayHouse[n];
+    const arDet = curElem.arrayDetail;
+    for (let t = 0; t < arDet.length; t += 1) {
+      const curElDet = arDet[t];
+      newObj = {
+        planet: curElDet.planet,
+        fulDegr: curElDet.fulDegr,
+        hours: curElDet.hours,
+        znZod: curElDet.znZod,
+        degr: curElDet.degr,
+      };
+      totalArray.push(newObj);
+    }
+  }
+
+  console.log(totalArray);
+
+  let arrayDiferent = [];
+
+  for (let i = 1; i < totalArray.length; i += 1) {
+    const elOne = totalArray[i];
+    const elTwo = totalArray[i - 1];
+    if (elOne.fulDegr >= elTwo.fulDegr) {
+      arrayDiferent.push(elOne.fulDegr - elTwo.fulDegr);
+    } else {
+      arrayDiferent.push(
+        getDifZnZod(elTwo.znZod, elOne.znZod, elTwo.degr, elOne.degr)
+      );
+    }
+  }
+
+  const elOne = totalArray[0];
+  const elTwo = totalArray[totalArray.length - 1];
+  if (elOne.fulDegr >= elTwo.fulDegr) {
+    arrayDiferent.push(elOne.fulDegr - elTwo.fulDegr);
+  } else {
+    arrayDiferent.push(
+      getDifZnZod(elTwo.znZod, elOne.znZod, elTwo.degr, elOne.degr)
+    );
+  }
+
+  degrValue.textContent = arrayDiferent.join("-");
+
   /* const firstElem = arrayHouse[0];
   const lastElem = arrayHouse[arrayHouse.length - 1];
 
@@ -260,7 +306,7 @@ function onClickButtonCalc() {
   const lastDegr =
     lastElem.arrayDetail[lastElem.arrayDetail.length - 1].fulDegr;
   const difDegr = lastDegr - firstDegr;
-  console.log(difDegr);*/
+  console.log(difDegr);
 
   let arrayDegr = [];
 
@@ -278,6 +324,52 @@ function onClickButtonCalc() {
   const difDegr = arrayDegr[arrayDegr.length - 1] - arrayDegr[0];
 
   degrValue.textContent = String(difDegr);
+
+  for (let n = 1; n < arrayDegr.length; n += 1) {
+    const firstElem = arrayDegr[n];
+    const lastElem = arrayDegr[n - 1];
+    console.log(firstElem - lastElem);
+  }*/
+}
+
+function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
+  const numberOne = getNumbZnZod(znZodOne);
+  const numberTwo = getNumbZnZod(znZodTwo);
+  let totalDif = 0;
+  if (numberTwo >= numberOne) {
+    totalDif = numberTwo - numberOne;
+  } else {
+    totalDif = 12 - numberOne + numberTwo;
+  }
+  return 30 * totalDif + (degrTwo - degrOne);
+}
+
+function getNumbZnZod(znZod) {
+  if (znZod === "Овен") {
+    return 1;
+  } else if (znZod === "Тілець") {
+    return 2;
+  } else if (znZod === "Близнюки") {
+    return 3;
+  } else if (znZod === "Рак") {
+    return 4;
+  } else if (znZod === "Лев") {
+    return 5;
+  } else if (znZod === "Діва") {
+    return 6;
+  } else if (znZod === "Терези") {
+    return 7;
+  } else if (znZod === "Скорпіон") {
+    return 8;
+  } else if (znZod === "Стрілець") {
+    return 9;
+  } else if (znZod === "Козеріг") {
+    return 10;
+  } else if (znZod === "Водолій") {
+    return 11;
+  } else {
+    return 12;
+  }
 }
 
 function getDegrZnZodiak(znZod) {
