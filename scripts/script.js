@@ -296,7 +296,11 @@ function onClickButtonCalc() {
   }
 
   arrayDiferent.sort((a, b) => a - b);
-  degrValue.textContent = arrayDiferent.join("-");
+
+  const inValue = 0;
+  const sumValue = arrayDiferent.reduce((accum, cur) => accum + cur, inValue);
+
+  degrValue.textContent = arrayDiferent.join("-") + ":" + String(sumValue);
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
