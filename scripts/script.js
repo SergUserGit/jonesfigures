@@ -53,8 +53,18 @@ const buttonCalc = document.querySelector(".button-calc");
 buttonCalc.addEventListener("click", onClickButtonCalc);
 
 const degrValue = document.querySelector(".degr-value");
-
-//
+const titleRange0_30 = document.querySelector(".title_range_0_30");
+const titleRange30_60 = document.querySelector(".title_range_30_60");
+const titleRange60_90 = document.querySelector(".title_range_60_90");
+const titleRange90_120 = document.querySelector(".title_range_90_120");
+const titleRange120_150 = document.querySelector(".title_range_120_150");
+const titleRange150_180 = document.querySelector(".title_range_150_180");
+const titleRange180_210 = document.querySelector(".title_range_180_210");
+const titleRange210_240 = document.querySelector(".title_range_210_240");
+const titleRange240_270 = document.querySelector(".title_range_240_270");
+const titleRange270_300 = document.querySelector(".title_range_270_300");
+const titleRange300_330 = document.querySelector(".title_range_300_330");
+const titleRange330_360 = document.querySelector(".title_range_330_360");
 
 function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
   const newObj = {
@@ -345,7 +355,41 @@ function onClickButtonCalc() {
     }
   }
 
-  console.log(objRangePlanet);
+  titleRange0_30.textContent =
+    "Від 0 до 30: " + String(objRangePlanet.range_0_30);
+
+  titleRange30_60.textContent =
+    "Від 30 до 60: " + String(objRangePlanet.range_30_60);
+
+  titleRange60_90.textContent =
+    "Від 60 до 90: " + String(objRangePlanet.range_60_90);
+
+  titleRange90_120.textContent =
+    "Від 90 до 120: " + String(objRangePlanet.range_90_120);
+
+  titleRange120_150.textContent =
+    "Від 120 до 150: " + String(objRangePlanet.range_120_150);
+
+  titleRange150_180.textContent =
+    "Від 150 до 180: " + String(objRangePlanet.range_150_180);
+
+  titleRange180_210.textContent =
+    "Від 180 до 210: " + String(objRangePlanet.range_180_210);
+
+  titleRange210_240.textContent =
+    "Від 210 до 240: " + String(objRangePlanet.range_210_240);
+
+  titleRange240_270.textContent =
+    "Від 240 до 270: " + String(objRangePlanet.range_240_270);
+
+  titleRange270_300.textContent =
+    "Від 270 до 300: " + String(objRangePlanet.range_270_300);
+
+  titleRange300_330.textContent =
+    "Від 300 до 330: " + String(objRangePlanet.range_300_330);
+
+  titleRange330_360.textContent =
+    "Від 330 до 360: " + String(objRangePlanet.range_330_360);
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {

@@ -165,3 +165,23 @@
   background-color: #79b3c0;
   cursor: pointer;
 }
+
+.list_range {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.title_range {
+  color: #195313;
+  font-size: 26px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
