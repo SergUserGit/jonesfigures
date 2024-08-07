@@ -295,12 +295,57 @@ function onClickButtonCalc() {
     );
   }
 
-  arrayDiferent.sort((a, b) => a - b);
+  /* arrayDiferent.sort((a, b) => a - b);*/
 
   const inValue = 0;
   const sumValue = arrayDiferent.reduce((accum, cur) => accum + cur, inValue);
 
   degrValue.textContent = arrayDiferent.join("-") + ":" + String(sumValue);
+
+  const objRangePlanet = {
+    range_0_30: 0,
+    range_30_60: 0,
+    range_60_90: 0,
+    range_90_120: 0,
+    range_120_150: 0,
+    range_150_180: 0,
+    range_180_210: 0,
+    range_210_240: 0,
+    range_240_270: 0,
+    range_270_300: 0,
+    range_300_330: 0,
+    range_330_360: 0,
+  };
+  for (let k = 0; k < arrayDiferent.length; k += 1) {
+    const curElem = arrayDiferent[k];
+    if (curElem >= 0 && curElem < 30) {
+      objRangePlanet.range_0_30 += 1;
+    } else if (curElem >= 30 && curElem < 60) {
+      objRangePlanet.range_30_60 += 1;
+    } else if (curElem >= 60 && curElem < 90) {
+      objRangePlanet.range_60_90 += 1;
+    } else if (curElem >= 90 && curElem < 120) {
+      objRangePlanet.range_90_120 += 1;
+    } else if (curElem >= 120 && curElem < 150) {
+      objRangePlanet.range_120_150 += 1;
+    } else if (curElem >= 150 && curElem < 180) {
+      objRangePlanet.range_150_180 += 1;
+    } else if (curElem >= 180 && curElem < 210) {
+      objRangePlanet.range_180_210 += 1;
+    } else if (curElem >= 210 && curElem < 240) {
+      objRangePlanet.range_210_240 += 1;
+    } else if (curElem >= 240 && curElem < 270) {
+      objRangePlanet.range_240_270 += 1;
+    } else if (curElem >= 270 && curElem < 300) {
+      objRangePlanet.range_270_300 += 1;
+    } else if (curElem >= 300 && curElem < 330) {
+      objRangePlanet.range_300_330 += 1;
+    } else {
+      objRangePlanet.range_330_360 += 1;
+    }
+  }
+
+  console.log(objRangePlanet);
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
