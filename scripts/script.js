@@ -65,6 +65,10 @@ const titleRange240_270 = document.querySelector(".title_range_240_270");
 const titleRange270_300 = document.querySelector(".title_range_270_300");
 const titleRange300_330 = document.querySelector(".title_range_300_330");
 const titleRange330_360 = document.querySelector(".title_range_330_360");
+const titlePercentOne = document.querySelector(".title_percent_one");
+const titlePercentTwo = document.querySelector(".title_percent_two");
+const titlePercentThree = document.querySelector(".title_percent_three");
+const titlePercentFour = document.querySelector(".title_percent_four");
 
 function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
   const newObj = {
@@ -390,6 +394,30 @@ function onClickButtonCalc() {
 
   titleRange330_360.textContent =
     "Від 330 до 360: " + String(objRangePlanet.range_330_360);
+
+  let sumRange = 0;
+  for (let key in objRangePlanet) {
+    sumRange += objRangePlanet[key];
+  }
+
+  const sumOne = objRangePlanet.range_0_30 + objRangePlanet.range_30_60;
+  const percentOne = Math.round((sumOne / sumRange) * 100);
+
+  const sumTwo = objRangePlanet.range_60_90 + objRangePlanet.range_90_120;
+  const percentTwo = Math.round((sumTwo / sumRange) * 100);
+
+  const sumThree = objRangePlanet.range_120_150 + objRangePlanet.range_150_180;
+  const percentThree = Math.round((sumThree / sumRange) * 100);
+
+  const sumFour = objRangePlanet.range_180_210 + objRangePlanet.range_210_240;
+  const percentFour = Math.round((sumFour / sumRange) * 100);
+
+  titlePercentOne.textContent = "Діапазони 1 - 2: " + String(percentOne) + "%";
+  titlePercentTwo.textContent = "Діапазони 3 - 4: " + String(percentTwo) + "%";
+  titlePercentThree.textContent =
+    "Діапазони 5 - 6: " + String(percentThree) + "%";
+  titlePercentFour.textContent =
+    "Діапазони 7 - 8: " + String(percentFour) + "%";
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
