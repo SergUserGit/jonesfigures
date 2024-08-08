@@ -69,6 +69,8 @@ const titlePercentOne = document.querySelector(".title_percent_one");
 const titlePercentTwo = document.querySelector(".title_percent_two");
 const titlePercentThree = document.querySelector(".title_percent_three");
 const titlePercentFour = document.querySelector(".title_percent_four");
+const titlePercentFive = document.querySelector(".title_percent_five");
+const titlePercentSix = document.querySelector(".title_percent_six");
 
 function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
   const newObj = {
@@ -412,12 +414,22 @@ function onClickButtonCalc() {
   const sumFour = objRangePlanet.range_180_210 + objRangePlanet.range_210_240;
   const percentFour = Math.round((sumFour / sumRange) * 100);
 
+  const sumFive = objRangePlanet.range_240_270 + objRangePlanet.range_270_300;
+  const percentFive = Math.round((sumFive / sumRange) * 100);
+
+  const sumSix = objRangePlanet.range_300_330 + objRangePlanet.range_330_360;
+  const percentSix = Math.round((sumSix / sumRange) * 100);
+
   titlePercentOne.textContent = "Діапазони 1 - 2: " + String(percentOne) + "%";
   titlePercentTwo.textContent = "Діапазони 3 - 4: " + String(percentTwo) + "%";
   titlePercentThree.textContent =
     "Діапазони 5 - 6: " + String(percentThree) + "%";
   titlePercentFour.textContent =
     "Діапазони 7 - 8: " + String(percentFour) + "%";
+  titlePercentFive.textContent =
+    "Діапазони 9 - 10: " + String(percentFive) + "%";
+  titlePercentSix.textContent =
+    "Діапазони 11 - 12: " + String(percentSix) + "%";
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
