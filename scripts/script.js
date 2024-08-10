@@ -430,6 +430,41 @@ function onClickButtonCalc() {
     "Діапазони 9 - 10: " + String(percentFive) + "%";
   titlePercentSix.textContent =
     "Діапазони 11 - 12: " + String(percentSix) + "%";
+
+  const objRangePercent = {
+    percent_1_2: percentOne,
+    percent_3_4: percentTwo,
+    percent_5_6: percentThree,
+    percent_7_8: percentFour,
+    percent_9_10: percentFive,
+    percent_11_12: percentSix,
+  };
+
+  const figureJons = getFigureJons(
+    arrayDiferent,
+    objRangePlanet,
+    objRangePercent
+  );
+}
+
+function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
+  if (
+    objRangePercent.percent_1_2 !== 0 &&
+    objRangePercent.percent_9_10 === 0 &&
+    objRangePercent.percent_11_12 === 0 &&
+    objRangePercent.percent_3_4 !== 0 &&
+    objRangePercent.percent_5_6 !== 0 &&
+    objRangePercent.percent_7_8 === 0
+  ) {
+    if (
+      objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
+      objRangePercent.percent_1_2 > objRangePercent.percent_5_6
+    ) {
+      if (objRangePlanet.range_60_90 <= 1) {
+        console.log("cdv");
+      }
+    }
+  }
 }
 
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
