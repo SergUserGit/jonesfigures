@@ -450,19 +450,38 @@ function onClickButtonCalc() {
 }
 
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
-  if (
+  const conditionOne =
     objRangePercent.percent_1_2 !== 0 &&
-    objRangePercent.percent_9_10 === 0 &&
-    objRangePercent.percent_11_12 === 0 &&
     objRangePercent.percent_3_4 !== 0 &&
     objRangePercent.percent_5_6 !== 0 &&
-    objRangePercent.percent_7_8 === 0
-  ) {
-    if (
-      objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
-      objRangePercent.percent_1_2 > objRangePercent.percent_5_6
-    ) {
-      if (objRangePlanet.range_60_90 <= 1) {
+    objRangePercent.percent_7_8 === 0 &&
+    objRangePercent.percent_9_10 === 0 &&
+    objRangePercent.percent_11_12 === 0;
+
+  const conditionTwo =
+    objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
+    objRangePercent.percent_1_2 > objRangePercent.percent_5_6;
+
+  const conditionThree =
+    objRangePlanet.range_60_90 <= 1 && objRangePlanet.range_90_120 === 0;
+
+  const conditionFour =
+    objRangePercent.percent_1_2 !== 0 &&
+    objRangePercent.percent_3_4 === 0 &&
+    objRangePercent.percent_5_6 === 0 &&
+    objRangePercent.percent_7_8 !== 0 &&
+    objRangePercent.percent_9_10 === 0 &&
+    objRangePercent.percent_11_12 === 0;
+
+  const conditionFive =
+    objRangePercent.percent_1_2 > objRangePercent.percent_7_8;
+
+  const conditionSix =
+    objRangePlanet.range_60_90 === 0 && objRangePlanet.range_90_120 === 0;
+
+  if (conditionOne || conditionFour) {
+    if (conditionTwo || conditionFive) {
+      if (conditionThree || conditionSix) {
         let arrayRanges = [];
 
         fillArrayRanges(arrayRanges);
@@ -484,20 +503,42 @@ function fillArrayRanges(arrayRanges) {
     from_90_120: true,
     from_120_150: false,
     from_150_180: false,
+    from_180_210: false,
+    from_210_240: false,
   };
   arrayRanges.push(objOne);
   const objTwo = {
     from_90_120: false,
     from_120_150: true,
     from_150_180: false,
+    from_180_210: false,
+    from_210_240: false,
   };
   arrayRanges.push(objTwo);
   const objThree = {
     from_90_120: false,
     from_120_150: false,
     from_150_180: true,
+    from_180_210: false,
+    from_210_240: false,
   };
   arrayRanges.push(objThree);
+  const objFour = {
+    from_90_120: false,
+    from_120_150: false,
+    from_150_180: false,
+    from_180_210: true,
+    from_210_240: false,
+  };
+  arrayRanges.push(objFour);
+  const objFive = {
+    from_90_120: false,
+    from_120_150: false,
+    from_150_180: false,
+    from_180_210: false,
+    from_210_240: true,
+  };
+  arrayRanges.push(objFive);
 }
 
 function addTotalArrayDiferent(totalArray, arrayRange) {
@@ -527,6 +568,16 @@ function getDiferentByFigure(arrayDiferent, arrayRanges) {
         (difelement) => difelement >= 150 && difelement < 180
       );
       addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_180_210 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 180 && difelement < 210
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_210_240 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 210 && difelement < 240
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
     }
   }
 
@@ -536,7 +587,7 @@ function getDiferentByFigure(arrayDiferent, arrayRanges) {
 }
 
 function getFigureByDifferent(differnt) {
-  const difDegr = 360 - differnt;
+  const difDegr = differnt;
   const difBowl = Math.abs(180 - difDegr);
   const difLokomotive = Math.abs(120 - difDegr);
   const difBunch = Math.abs(240 - difDegr);

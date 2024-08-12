@@ -214,3 +214,18 @@
   width: 300px;
   box-shadow: 18px 18px 18px rgb(135, 135, 203);
 }
+
+.figure-jons {
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #362e73;
+  font-size: 36px;
+  letter-spacing: 5px;
+  border: 5px solid #2e735a;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: #3fcaac;
+  cursor: pointer;
+  box-shadow: 18px 18px 18px 18px rgb(151, 87, 154);
+}
