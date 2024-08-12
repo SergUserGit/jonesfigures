@@ -71,6 +71,7 @@ const titlePercentThree = document.querySelector(".title_percent_three");
 const titlePercentFour = document.querySelector(".title_percent_four");
 const titlePercentFive = document.querySelector(".title_percent_five");
 const titlePercentSix = document.querySelector(".title_percent_six");
+const figureJonsTitle = document.querySelector(".figure-jons");
 
 function getDatePlanet(znZodInput, degrInput, hoursInput, houseInput) {
   const newObj = {
@@ -445,6 +446,7 @@ function onClickButtonCalc() {
     objRangePlanet,
     objRangePercent
   );
+  figureJonsTitle.textContent = figureJons;
 }
 
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
@@ -461,10 +463,76 @@ function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
       objRangePercent.percent_1_2 > objRangePercent.percent_5_6
     ) {
       if (objRangePlanet.range_60_90 <= 1) {
-        console.log("cdv");
+        let arrayRanges = [];
+
+        fillArrayRanges(arrayRanges);
+
+        const difForFigureJons = getDiferentByFigure(
+          arrayDiferent,
+          arrayRanges
+        );
+        return getFigureByDifferent(difForFigureJons);
       }
     }
+  } else {
+    return "";
   }
+}
+
+function fillArrayRanges(arrayRanges) {
+  const objOne = {
+    from_90_120: true,
+    from_120_150: false,
+    from_150_180: false,
+  };
+  arrayRanges.push(objOne);
+  const objTwo = {
+    from_90_120: false,
+    from_120_150: true,
+    from_150_180: false,
+  };
+  arrayRanges.push(objTwo);
+  const objThree = {
+    from_90_120: false,
+    from_120_150: false,
+    from_150_180: true,
+  };
+  arrayRanges.push(objThree);
+}
+
+function addTotalArrayDiferent(totalArray, arrayRange) {
+  for (let a = 0; a < arrayRange.length; a += 1) {
+    curElem = arrayRange[a];
+    totalArray.push(curElem);
+  }
+}
+
+function getDiferentByFigure(arrayDiferent, arrayRanges) {
+  let totalArray = [];
+
+  for (let k = 0; k < arrayRanges.length; k += 1) {
+    const curElem = arrayRanges[k];
+    if (curElem.from_90_120 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 90 && difelement < 120
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_120_150 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 120 && difelement < 150
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_150_180 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 150 && difelement < 180
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    }
+  }
+
+  totalArray.sort((a, b) => a - b);
+
+  return totalArray[totalArray.length - 1];
 }
 
 function getFigureByDifferent(differnt) {
