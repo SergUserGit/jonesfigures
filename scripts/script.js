@@ -467,6 +467,46 @@ function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
   }
 }
 
+function getFigureByDifferent(differnt) {
+  const difDegr = 360 - differnt;
+  const difBowl = Math.abs(180 - difDegr);
+  const difLokomotive = Math.abs(120 - difDegr);
+  const difBunch = Math.abs(240 - difDegr);
+  let arrayDif = [];
+  const newObjBowl = {
+    isBowl: true,
+    isLokomotive: false,
+    isBunch: false,
+    difValue: difBowl,
+  };
+  arrayDif.push(newObjBowl);
+  const newObjLokomotive = {
+    isBowl: false,
+    isLokomotive: true,
+    isBunch: false,
+    difValue: difLokomotive,
+  };
+  arrayDif.push(newObjLokomotive);
+  const newObjBunch = {
+    isBowl: false,
+    isLokomotive: false,
+    isBunch: true,
+    difValue: difBunch,
+  };
+  arrayDif.push(newObjBunch);
+  arrayDif.sort((a, b) => a.difValue - b.difValue);
+  const firstElem = arrayDif[0];
+  if (firstElem.isBowl === true) {
+    return "Чаша";
+  } else if (firstElem.isLokomotive === true) {
+    return "Локомотив";
+  } else if (firstElem.isBunch === true) {
+    return "Пучок";
+  } else {
+    return "";
+  }
+}
+
 function getDifZnZod(znZodOne, znZodTwo, degrOne, degrTwo) {
   const numberOne = getNumbZnZod(znZodOne);
   const numberTwo = getNumbZnZod(znZodTwo);
