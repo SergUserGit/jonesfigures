@@ -473,6 +473,16 @@ function getConditionsForFigure(objRangePercent, objRangePlanet) {
     conditionFive: objRangePercent.percent_1_2 > objRangePercent.percent_7_8,
     conditionSix:
       objRangePlanet.range_60_90 === 0 && objRangePlanet.range_90_120 === 0,
+    conditionSeven:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 !== 0 &&
+      objRangePercent.percent_5_6 === 0 &&
+      objRangePercent.percent_7_8 !== 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionEight:
+      objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
+      objRangePercent.percent_1_2 > objRangePercent.percent_7_8,
   };
   return objConditions;
 }
@@ -480,8 +490,16 @@ function getConditionsForFigure(objRangePercent, objRangePlanet) {
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
   const objConditions = getConditionsForFigure(objRangePercent, objRangePlanet);
 
-  if (objConditions.conditionOne || objConditions.conditionFour) {
-    if (objConditions.conditionTwo || objConditions.conditionFive) {
+  if (
+    objConditions.conditionOne ||
+    objConditions.conditionFour ||
+    objConditions.conditionSeven
+  ) {
+    if (
+      objConditions.conditionTwo ||
+      objConditions.conditionFive ||
+      objConditions.conditionEight
+    ) {
       if (objConditions.conditionThree || objConditions.conditionSix) {
         let arrayRanges = [];
 
