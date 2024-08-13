@@ -449,39 +449,40 @@ function onClickButtonCalc() {
   figureJonsTitle.textContent = figureJons;
 }
 
+function getConditionsForFigure(objRangePercent, objRangePlanet) {
+  const objConditions = {
+    conditionOne:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 !== 0 &&
+      objRangePercent.percent_5_6 !== 0 &&
+      objRangePercent.percent_7_8 === 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionTwo:
+      objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
+      objRangePercent.percent_1_2 > objRangePercent.percent_5_6,
+    conditionThree:
+      objRangePlanet.range_60_90 <= 1 && objRangePlanet.range_90_120 === 0,
+    conditionFour:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 === 0 &&
+      objRangePercent.percent_5_6 === 0 &&
+      objRangePercent.percent_7_8 !== 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionFive: objRangePercent.percent_1_2 > objRangePercent.percent_7_8,
+    conditionSix:
+      objRangePlanet.range_60_90 === 0 && objRangePlanet.range_90_120 === 0,
+  };
+  return objConditions;
+}
+
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
-  const conditionOne =
-    objRangePercent.percent_1_2 !== 0 &&
-    objRangePercent.percent_3_4 !== 0 &&
-    objRangePercent.percent_5_6 !== 0 &&
-    objRangePercent.percent_7_8 === 0 &&
-    objRangePercent.percent_9_10 === 0 &&
-    objRangePercent.percent_11_12 === 0;
+  const objConditions = getConditionsForFigure(objRangePercent, objRangePlanet);
 
-  const conditionTwo =
-    objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
-    objRangePercent.percent_1_2 > objRangePercent.percent_5_6;
-
-  const conditionThree =
-    objRangePlanet.range_60_90 <= 1 && objRangePlanet.range_90_120 === 0;
-
-  const conditionFour =
-    objRangePercent.percent_1_2 !== 0 &&
-    objRangePercent.percent_3_4 === 0 &&
-    objRangePercent.percent_5_6 === 0 &&
-    objRangePercent.percent_7_8 !== 0 &&
-    objRangePercent.percent_9_10 === 0 &&
-    objRangePercent.percent_11_12 === 0;
-
-  const conditionFive =
-    objRangePercent.percent_1_2 > objRangePercent.percent_7_8;
-
-  const conditionSix =
-    objRangePlanet.range_60_90 === 0 && objRangePlanet.range_90_120 === 0;
-
-  if (conditionOne || conditionFour) {
-    if (conditionTwo || conditionFive) {
-      if (conditionThree || conditionSix) {
+  if (objConditions.conditionOne || objConditions.conditionFour) {
+    if (objConditions.conditionTwo || objConditions.conditionFive) {
+      if (objConditions.conditionThree || objConditions.conditionSix) {
         let arrayRanges = [];
 
         fillArrayRanges(arrayRanges);
