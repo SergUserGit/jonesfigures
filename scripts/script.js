@@ -507,6 +507,14 @@ function getConditionsForFigure(objRangePercent, objRangePlanet) {
       objRangePercent.percent_9_10 === 0 &&
       objRangePercent.percent_11_12 === 0,
     conditionTen: objRangePercent.percent_1_2 > objRangePercent.percent_5_6,
+    conditionElewen:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 === 0 &&
+      objRangePercent.percent_5_6 === 0 &&
+      objRangePercent.percent_7_8 === 0 &&
+      objRangePercent.percent_9_10 !== 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionTwelve: objRangePercent.percent_1_2 > objRangePercent.percent_9_10,
   };
   return objConditions;
 }
@@ -522,11 +530,13 @@ function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
     (objConditions.conditionOne ||
       objConditions.conditionFour ||
       objConditions.conditionSeven ||
-      objConditions.conditionNine) &&
+      objConditions.conditionNine ||
+      objConditions.conditionElewen) &&
     (objConditions.conditionTwo ||
       objConditions.conditionFive ||
       objConditions.conditionEight ||
-      objConditions.conditionTen) &&
+      objConditions.conditionTen ||
+      objConditions.conditionTwelve) &&
     (objConditions.conditionThree || objConditions.conditionSix)
   ) {
     let arrayRanges = [];
@@ -551,6 +561,8 @@ function fillArrayRanges(arrayRanges) {
     from_150_180: false,
     from_180_210: false,
     from_210_240: false,
+    from_240_270: false,
+    from_270_300: false,
   };
   arrayRanges.push(objOne);
   const objTwo = {
@@ -559,6 +571,8 @@ function fillArrayRanges(arrayRanges) {
     from_150_180: false,
     from_180_210: false,
     from_210_240: false,
+    from_240_270: false,
+    from_270_300: false,
   };
   arrayRanges.push(objTwo);
   const objThree = {
@@ -567,6 +581,8 @@ function fillArrayRanges(arrayRanges) {
     from_150_180: true,
     from_180_210: false,
     from_210_240: false,
+    from_240_270: false,
+    from_270_300: false,
   };
   arrayRanges.push(objThree);
   const objFour = {
@@ -575,6 +591,8 @@ function fillArrayRanges(arrayRanges) {
     from_150_180: false,
     from_180_210: true,
     from_210_240: false,
+    from_240_270: false,
+    from_270_300: false,
   };
   arrayRanges.push(objFour);
   const objFive = {
@@ -583,8 +601,30 @@ function fillArrayRanges(arrayRanges) {
     from_150_180: false,
     from_180_210: false,
     from_210_240: true,
+    from_240_270: false,
+    from_270_300: false,
   };
   arrayRanges.push(objFive);
+  const objSix = {
+    from_90_120: false,
+    from_120_150: false,
+    from_150_180: false,
+    from_180_210: false,
+    from_210_240: false,
+    from_240_270: true,
+    from_270_300: false,
+  };
+  arrayRanges.push(objSix);
+  const objSeven = {
+    from_90_120: false,
+    from_120_150: false,
+    from_150_180: false,
+    from_180_210: false,
+    from_210_240: false,
+    from_240_270: false,
+    from_270_300: true,
+  };
+  arrayRanges.push(objSeven);
 }
 
 function addTotalArrayDiferent(totalArray, arrayRange) {
@@ -622,6 +662,16 @@ function getDiferentByFigure(arrayDiferent, arrayRanges) {
     } else if (curElem.from_210_240 === true) {
       const arrayRange = arrayDiferent.filter(
         (difelement) => difelement >= 210 && difelement < 240
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_240_270 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 240 && difelement < 270
+      );
+      addTotalArrayDiferent(totalArray, arrayRange);
+    } else if (curElem.from_270_300 === true) {
+      const arrayRange = arrayDiferent.filter(
+        (difelement) => difelement >= 270 && difelement < 300
       );
       addTotalArrayDiferent(totalArray, arrayRange);
     }
