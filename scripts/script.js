@@ -449,6 +449,22 @@ function onClickButtonCalc() {
   figureJonsTitle.textContent = figureJons;
 }
 
+function getConditionsForFigureNew(objRangePercent, objRangePlanet) {
+  const objConditions = {
+    conditionOne:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 !== 0 &&
+      objRangePercent.percent_5_6 === 0 &&
+      objRangePercent.percent_7_8 === 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionTwo: objRangePercent.percent_1_2 > objRangePercent.percent_3_4,
+    conditionThree:
+      objRangePlanet.range_60_90 + objRangePlanet.range_90_120 === 2,
+  };
+  return objConditions;
+}
+
 function getConditionsForFigure(objRangePercent, objRangePlanet) {
   const objConditions = {
     conditionOne:
@@ -497,33 +513,34 @@ function getConditionsForFigure(objRangePercent, objRangePlanet) {
 
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
   const objConditions = getConditionsForFigure(objRangePercent, objRangePlanet);
+  const objConditionsNew = getConditionsForFigureNew(
+    objRangePercent,
+    objRangePlanet
+  );
 
   if (
-    objConditions.conditionOne ||
-    objConditions.conditionFour ||
-    objConditions.conditionSeven ||
-    objConditions.conditionNine
-  ) {
-    if (
-      objConditions.conditionTwo ||
+    (objConditions.conditionOne ||
+      objConditions.conditionFour ||
+      objConditions.conditionSeven ||
+      objConditions.conditionNine) &&
+    (objConditions.conditionTwo ||
       objConditions.conditionFive ||
       objConditions.conditionEight ||
-      objConditions.conditionTen
-    ) {
-      if (objConditions.conditionThree || objConditions.conditionSix) {
-        let arrayRanges = [];
-
-        fillArrayRanges(arrayRanges);
-
-        const difForFigureJons = getDiferentByFigure(
-          arrayDiferent,
-          arrayRanges
-        );
-        return getFigureByDifferent(difForFigureJons);
-      }
-    }
+      objConditions.conditionTen) &&
+    (objConditions.conditionThree || objConditions.conditionSix)
+  ) {
+    let arrayRanges = [];
+    fillArrayRanges(arrayRanges);
+    const difForFigureJons = getDiferentByFigure(arrayDiferent, arrayRanges);
+    return getFigureByDifferent(difForFigureJons);
+  } else if (
+    objConditionsNew.conditionOne &&
+    objConditionsNew.conditionTwo &&
+    objConditionsNew.conditionThree
+  ) {
+    return "Гойдалки";
   } else {
-    return "";
+    return "Невизначена фігура";
   }
 }
 
