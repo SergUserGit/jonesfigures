@@ -571,6 +571,10 @@ function getObjectTolalConditions(
       objConditionsNew.conditionOne &&
       objConditionsNew.conditionTwo &&
       objConditionsNew.conditionThree,
+    conditionThree:
+      (objConditionsBasket.conditionOne || objConditionsBasket.conditionFour) &&
+      (objConditionsBasket.conditionTwo || objConditionsBasket.conditionFive) &&
+      (objConditionsBasket.conditionThree || objConditionsBasket.conditionSix),
   };
   return newObj;
 }
@@ -592,7 +596,9 @@ function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
     objConditionsBasket
   );
 
-  if (totalConditionObj.conditionOne) {
+  if (totalConditionObj.conditionThree) {
+    return "Кошик";
+  } else if (totalConditionObj.conditionOne) {
     let arrayRanges = [];
     fillArrayRanges(arrayRanges);
     const difForFigureJons = getDiferentByFigure(arrayDiferent, arrayRanges);
