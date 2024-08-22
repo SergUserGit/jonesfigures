@@ -549,38 +549,58 @@ function getConditionsForFigureBasket(objRangePercent, objRangePlanet) {
   return objConditions;
 }
 
+function getObjectTolalConditions(
+  objConditions,
+  objConditionsNew,
+  objConditionsBasket
+) {
+  const newObj = {
+    conditionOne:
+      (objConditions.conditionOne ||
+        objConditions.conditionFour ||
+        objConditions.conditionSeven ||
+        objConditions.conditionNine ||
+        objConditions.conditionElewen) &&
+      (objConditions.conditionTwo ||
+        objConditions.conditionFive ||
+        objConditions.conditionEight ||
+        objConditions.conditionTen ||
+        objConditions.conditionTwelve) &&
+      (objConditions.conditionThree || objConditions.conditionSix),
+    conditionTwo:
+      objConditionsNew.conditionOne &&
+      objConditionsNew.conditionTwo &&
+      objConditionsNew.conditionThree,
+  };
+  return newObj;
+}
+
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
   const objConditions = getConditionsForFigure(objRangePercent, objRangePlanet);
   const objConditionsNew = getConditionsForFigureNew(
     objRangePercent,
     objRangePlanet
   );
+  const objConditionsBasket = getConditionsForFigureBasket(
+    objRangePercent,
+    objRangePlanet
+  );
 
-  if (
-    (objConditions.conditionOne ||
-      objConditions.conditionFour ||
-      objConditions.conditionSeven ||
-      objConditions.conditionNine ||
-      objConditions.conditionElewen) &&
-    (objConditions.conditionTwo ||
-      objConditions.conditionFive ||
-      objConditions.conditionEight ||
-      objConditions.conditionTen ||
-      objConditions.conditionTwelve) &&
-    (objConditions.conditionThree || objConditions.conditionSix)
-  ) {
+  const totalConditionObj = getObjectTolalConditions(
+    objConditions,
+    objConditionsNew,
+    objConditionsBasket
+  );
+
+  if (totalConditionObj.conditionOne) {
     let arrayRanges = [];
     fillArrayRanges(arrayRanges);
     const difForFigureJons = getDiferentByFigure(arrayDiferent, arrayRanges);
     return getFigureByDifferent(difForFigureJons);
-  } else if (
-    objConditionsNew.conditionOne &&
-    objConditionsNew.conditionTwo &&
-    objConditionsNew.conditionThree
-  ) {
+  } else if (totalConditionObj.conditionTwo) {
     return "Гойдалки";
   } else {
-    return "Невизначена фігура";
+    return "Бризки";
   }
 }
 
