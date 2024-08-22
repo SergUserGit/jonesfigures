@@ -519,6 +519,36 @@ function getConditionsForFigure(objRangePercent, objRangePlanet) {
   return objConditions;
 }
 
+function getConditionsForFigureBasket(objRangePercent, objRangePlanet) {
+  const objConditions = {
+    conditionOne:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 !== 0 &&
+      objRangePercent.percent_5_6 !== 0 &&
+      objRangePercent.percent_7_8 === 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionTwo:
+      objRangePercent.percent_1_2 > objRangePercent.percent_3_4 &&
+      objRangePercent.percent_1_2 > objRangePercent.percent_5_6,
+    conditionThree:
+      objRangePlanet.range_60_90 + objRangePlanet.range_90_120 === 1 &&
+      objRangePlanet.range_120_150 + objRangePlanet.range_150_180 === 1,
+    conditionFour:
+      objRangePercent.percent_1_2 !== 0 &&
+      objRangePercent.percent_3_4 === 0 &&
+      objRangePercent.percent_5_6 !== 0 &&
+      objRangePercent.percent_7_8 === 0 &&
+      objRangePercent.percent_9_10 === 0 &&
+      objRangePercent.percent_11_12 === 0,
+    conditionFive: objRangePercent.percent_1_2 > objRangePercent.percent_5_6,
+    conditionSix:
+      objRangePlanet.range_60_90 + objRangePlanet.range_90_120 === 0 &&
+      objRangePlanet.range_120_150 + objRangePlanet.range_150_180 === 2,
+  };
+  return objConditions;
+}
+
 function getFigureJons(arrayDiferent, objRangePlanet, objRangePercent) {
   const objConditions = getConditionsForFigure(objRangePercent, objRangePlanet);
   const objConditionsNew = getConditionsForFigureNew(
