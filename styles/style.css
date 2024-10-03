@@ -647,3 +647,10 @@
 body {
   margin: 0;
 }
+
+@media screen and (min-width: 1200px) {
+  .planet-item {
+    padding: 20px;
+    width: 1200px;
+  }
+}
