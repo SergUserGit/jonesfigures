@@ -83,12 +83,30 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .planet-list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .planet-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 250px;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .planet-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
     padding: 30px;
   }
 }
@@ -115,6 +133,12 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .planet-label {
     font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .planet-label {
+    font-size: 28px;
   }
 }
 
@@ -145,6 +169,13 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .select-zn-zodiak {
+    font-size: 22px;
+    padding: 11px;
+  }
+}
+
 .group-degr {
   display: flex;
   align-items: center;
@@ -167,6 +198,12 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .degr-label {
     font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .degr-label {
+    font-size: 28px;
   }
 }
 
@@ -197,6 +234,13 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .degr-input {
+    font-size: 18px;
+    padding: 9px;
+  }
+}
+
 .group-hours {
   display: flex;
   align-items: center;
@@ -219,6 +263,12 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .label-hours {
     font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .label-hours {
+    font-size: 28px;
   }
 }
 
@@ -249,6 +299,13 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .input-hours {
+    font-size: 18px;
+    padding: 9px;
+  }
+}
+
 .group-house {
   display: flex;
   align-items: center;
@@ -271,6 +328,12 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .label-house {
     font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .label-house {
+    font-size: 28px;
   }
 }
 
@@ -298,6 +361,13 @@
   .input-house {
     font-size: 16px;
     padding: 7px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .input-house {
+    font-size: 18px;
+    padding: 9px;
   }
 }
 
@@ -354,6 +424,16 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .degr-value {
+    font-size: 36px;
+    border: 4px solid #9a1349;
+    border-radius: 18px;
+    width: 320px;
+    padding: 14px;
+  }
+}
+
 .group-degr-value {
   display: flex;
   align-items: center;
@@ -387,6 +467,17 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .list_range {
+    display: grid;
+    grid-template-columns: 430px 450px;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-items: center;
+
+  }
+}
+
 .title_range {
   color: #8a465c;
   font-size: 26px;
@@ -412,6 +503,14 @@
   .title_range {
     font-size: 22px;
     padding: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title_range {
+    font-size: 24px;
+    padding: 8px;
+    width: 250px;
   }
 }
 
@@ -447,6 +546,19 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .list_percent {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 430px 430px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .title_percent {
   font-weight: 700;
   color: #9835ca;
@@ -478,6 +590,14 @@
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .title_percent {
+    font-size: 24px;
+    padding: 8px;
+    width: 250px;
+  }
+}
+
 .figure-jons {
   font-weight: 700;
   text-align: center;
@@ -506,6 +626,14 @@
   .figure-jons {
     font-size: 32px;
     padding: 12px;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .figure-jons {
+    font-size: 34px;
+    padding: 14px;
     width: 250px;
   }
 }
