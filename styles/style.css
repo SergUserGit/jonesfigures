@@ -408,6 +408,13 @@
   }
 }
 
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .title_range {
+    font-size: 22px;
+    padding: 12px;
+  }
+}
+
 .list_percent {
   padding: 0;
   margin: 0;
@@ -421,6 +428,16 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
+  .list_percent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
   .list_percent {
     display: flex;
     align-items: center;
@@ -481,6 +498,14 @@
   .figure-jons {
     font-size: 30px;
     padding: 10px;
+    width: 250px;
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px) {
+  .figure-jons {
+    font-size: 32px;
+    padding: 12px;
     width: 250px;
   }
 }
