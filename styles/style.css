@@ -8,6 +8,7 @@
   text-decoration: underline;
   border-radius: 15px;
   border: 5px solid #812E23;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -62,7 +63,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 210px;
+    width: 240px;
     padding: 30px;
   }
 }
@@ -96,7 +97,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 250px;
+    width: 280px;
     padding: 30px;
   }
 }
@@ -122,6 +123,7 @@
   font-size: 30px;
   color: #7C1581;
   font-weight: 700;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -153,6 +155,7 @@
   font-size: 24px;
   text-align: center;
   text-decoration: underline;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -187,6 +190,7 @@
   font-size: 30px;
   color: #5B0F5F;
   font-weight: 700;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -218,6 +222,7 @@
   font-weight: 700;
   color: #1A485F;
   width: 100px;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -252,6 +257,7 @@
   font-size: 30px;
   color: #81125A;
   font-weight: 700;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -283,6 +289,7 @@
   font-weight: 700;
   color: #15525F;
   width: 100px;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -317,6 +324,7 @@
   font-size: 30px;
   color: #5F1723;
   font-weight: 700;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -348,6 +356,7 @@
   font-weight: 700;
   color: #0F5D5F;
   width: 100px;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -401,6 +410,7 @@
   cursor: pointer;
   margin-top: 15px;
   margin-bottom: 15px;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -489,6 +499,7 @@
   background-color: #E8764D;
   border-radius: 10px;
   box-shadow: 5px 18px 18px #9C4F33;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -578,6 +589,7 @@
   font-size: 26px;
   width: 300px;
   box-shadow: 18px 18px 18px #33569C;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -618,6 +630,7 @@
   cursor: pointer;
   box-shadow: 18px 18px 18px 18px #A43FBE;
   margin-bottom: 25px;
+  font-family: "Merriweather", serif;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -657,7 +670,7 @@ body {
 @media screen and (min-width: 1200px) {
   .planet-item {
     padding: 20px;
-    width: 1200px;
+    width: 1250px;
   }
 }
 
@@ -713,3 +726,6 @@ body {
     max-width: 1366px;
   }
 }
+
+/*font-family: "Merriweather",
+serif;*/
